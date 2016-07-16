@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import Firebase
 
 class LoginViewController: UIViewController {
     
-    var player = SPTAudioStreamingController.sharedInstance()
-
-    var tracks = [PBTrack]()
+    // MARK: - Instance Vars
     
     var authViewController: SPTAuthViewController!
     
@@ -23,35 +20,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .blackColor()
         
-        let ref = FIRDatabase.database().reference().child("Tracks")
-        ref.observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot) in
-            self.tracks.append(PBTrack(snapshot: snapshot))
-        }
-        
         authViewController = SPTAuthViewController.authenticationViewController()
         authViewController.delegate = self
         presentViewController(authViewController, animated: false, completion: nil)
-    }
-    
-    func playSong(trackURI: NSURL) {
-        guard SPTAuth.defaultInstance().session != nil &&
-            SPTAuth.defaultInstance().session.isValid() else {
-                return
-        }
-        
-        do {
-            try player.startWithClientId(SPTAuth.defaultInstance().clientID)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        
-        player.loginWithAccessToken(SPTAuth.defaultInstance().session.accessToken)
-        
-        player.playURIs([trackURI], fromIndex: 0) { (error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-        }
     }
 }
 

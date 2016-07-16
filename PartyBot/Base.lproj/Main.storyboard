@@ -107,6 +107,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.24313725489999999" green="0.25882352939999997" blue="0.24101197529999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addSongButtonTapped:" destination="ARt-HE-in3" eventType="touchUpInside" id="wkT-tl-Fq1"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Party Bot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7K-Xw-NHF">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
@@ -198,6 +201,9 @@
                             <constraint firstAttribute="trailing" secondItem="F7K-Xw-NHF" secondAttribute="trailing" id="zJ2-q1-RaG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="1e4-vv-hjn" id="1O5-BB-Lr2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2YA-60-c9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

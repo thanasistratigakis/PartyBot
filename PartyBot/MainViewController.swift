@@ -107,8 +107,10 @@ class MainViewController: UIViewController {
         let newTrack = tracks.removeFirst()
         songPlayingTitle.text = newTrack.title
         artistPlayingTitle.text = newTrack.artist
-        tableView.reloadData()
         albumImageView.af_setImageWithURL(NSURL(string: newTrack.album)!)
+        albumPlayingTitle.text = newTrack.albumTitle
+        tableView.reloadData()
+
     }
     
     func playSong(trackURIString: String) {
@@ -138,6 +140,10 @@ class MainViewController: UIViewController {
     
     func parseTrackURI(uri: NSURL) -> String{
         return uri.absoluteString.componentsSeparatedByString(":").last!
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
 }
 
@@ -180,3 +186,4 @@ extension MainViewController: SPTAudioStreamingPlaybackDelegate{
     }
     
 }
+

@@ -54,6 +54,10 @@ class SearchViewController: UIViewController {
                                             self.searchResults = items
         }
     }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 }
 
 extension SearchViewController: UITableViewDataSource {
@@ -81,7 +85,7 @@ extension SearchViewController: UITableViewDelegate {
         let selectedResult = searchResults[indexPath.row]
         ref.childByAutoId().updateChildValues(["title" : selectedResult.name,
             "uri" : selectedResult.playableUri.absoluteString,
-            "artist" : selectedResult.artists.first!.name, "url" : (selectedResult.album.covers[0].imageURL!.absoluteString)])
+            "artist" : selectedResult.artists.first!.name, "url" : (selectedResult.album.covers[0].imageURL!.absoluteString), "albumTitle" : selectedResult.album.name])
 
         dismissViewControllerAnimated(true, completion: nil)
     }

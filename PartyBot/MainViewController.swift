@@ -44,6 +44,10 @@ class MainViewController: UIViewController {
             print(self.tracks.count)
         }
         
+        ref.observeEventType(.ChildRemoved) { (snapshot: FIRDataSnapshot) in
+            self.nextSong()
+        }
+        
         let stateRef = FIRDatabase.database().reference().child("State")
         stateRef.observeEventType(.Value) { (snapshot: FIRDataSnapshot) in
             if(snapshot.exists()){
@@ -57,25 +61,32 @@ class MainViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func pausedTapped(sender: AnyObject) {
-        if(player.currentTrackURI == nil && tracks.count > 0){
-            playSong(tracks[0].uri)
-            let newTrack = tracks.removeFirst()
-            songPlayingTitle.text = newTrack.title
-            artistPlayingTitle.text = newTrack.artist
-            tableView.reloadData()
-            
+        
+        if(player.currentTrackURI == nil){
+            removeTrackFromFirebase()
         }else{
             player.setIsPlaying(!player.isPlaying, callback: nil)
+            
+        }
+        FIRDatabase.database().reference().child("State").setValue(player.isPlaying)
+
+    }
+    
+    
+    func removeTrackFromFirebase(){
+        if(tracks.count > 0){
+            tracks[0].removeTrack()
         }
     }
     
     @IBAction func nextPressed(sender: AnyObject) {
         do{
             try player.stop()
+            removeTrackFromFirebase()
         }catch{
 
         }
-        playSong(tracks[1].uri)
+
     }
     
     @IBAction func previousTapped(sender: AnyObject) {
@@ -84,6 +95,17 @@ class MainViewController: UIViewController {
     
     @IBAction func addSongButtonTapped(sender: UIButton) {
         performSegueWithIdentifier("toSearch", sender: self)
+    }
+    
+    func nextSong(){
+        if(tracks.isEmpty){
+            return
+        }
+        playSong(tracks[0].uri)
+        let newTrack = tracks.removeFirst()
+        songPlayingTitle.text = newTrack.title
+        artistPlayingTitle.text = newTrack.artist
+        tableView.reloadData()
     }
     
     func playSong(trackURIString: String) {
@@ -133,7 +155,6 @@ extension MainViewController: UITableViewDataSource{
 
 extension MainViewController: SPTAudioStreamingPlaybackDelegate{
     func audioStreaming(audioStreaming: SPTAudioStreamingController!, didChangePlaybackStatus isPlaying: Bool) {
-        FIRDatabase.database().reference().child("State").setValue(isPlaying)
 
       
     }

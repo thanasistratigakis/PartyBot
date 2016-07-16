@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct PBTrack {
+class PBTrack: NSObject {
     
     let title: String!
     let artist: String!
@@ -48,6 +48,22 @@ struct PBTrack {
         }
     }
     
+    func removeTrack(){
+        FIRDatabase.database().reference().child("Tracks").child(key).removeValue()
+
+    }
+    
+    
+}
+
+extension PBTrack{
+    override func isEqual(object: AnyObject?) -> Bool {
+        if((object as! PBTrack).key == self.key){
+            return true
+        }else{
+            return false
+        }
+    }
     
 }
 

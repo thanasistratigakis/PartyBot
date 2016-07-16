@@ -10,53 +10,86 @@ import UIKit
 import Firebase
 
 class SearchViewController: UIViewController {
-    var searchResult = [SPTPartialTrack]()
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var searchResults = [SPTPartialTrack]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        searchBar.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
-    
-    func search() {
+    func searchForQuery(query: String) {
         guard SPTAuth.defaultInstance().session != nil &&
             SPTAuth.defaultInstance().session.isValid() else {
                 return
         }
         
-        SPTSearch.performSearchWithQuery("zero chris brown",
+        SPTSearch.performSearchWithQuery(query,
                                          queryType: SPTSearchQueryType.QueryTypeTrack,
                                          accessToken: SPTAuth.defaultInstance().session.accessToken) { (error, results) in
-                                            if let error = error {
+                                            guard error == nil else {
                                                 print(error.localizedDescription)
                                                 return
                                             }
                                             
-                                            let items = (results as! SPTListPage).items
-                                            let track = items[0] as! SPTPartialTrack
+                                            guard let listPage = results as? SPTListPage else {
+                                                return
+                                            }
                                             
-//                                            self.playSong(track.playableUri)
+                                            guard let items = listPage.items as? [SPTPartialTrack] else {
+                                                return
+                                            }
+                                            
+                                            self.searchResults = items
         }
     }
-
 }
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return searchResults.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("SearchCell") as! SearchResultTableViewCell
+        
+        let track = searchResults[indexPath.row]
+        cell.nameLabel.text = track.name
+//        cell.artistLabel.text = track.artists.first as! String
+        
+        return cell
     }
 }
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //
         let ref = FIRDatabase.database().reference().child("Tracks")
         
-        ref.childByAutoId().updateChildValues(["title" : searchResult[indexPath.row].name, "uri" : searchResult[indexPath.row].playableUri, "artist" : searchResult[indexPath.row].artists.first!])
+        let selectedResult = searchResults[indexPath.row]
         
+        ref.childByAutoId().updateChildValues(["title" : selectedResult.name,
+            "uri" : selectedResult.playableUri,
+            "artist" : selectedResult.artists.first!])
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            searchResults = []
+        } else {
+            searchForQuery(searchText)
+        }
     }
 }

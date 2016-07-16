@@ -11,6 +11,7 @@
 		7F19E9BF004D7212BFC09765 /* Pods_PartyBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0808D391F626F880A5EF6BF8 /* Pods_PartyBot.framework */; };
 		CAA34D001D3A710700C10E57 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA34CFF1D3A710700C10E57 /* SearchViewController.swift */; };
 		CAA34D021D3A815200C10E57 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA34D011D3A815200C10E57 /* MainViewController.swift */; };
+		CAA34D041D3A8B6C00C10E57 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA34D031D3A8B6C00C10E57 /* SearchResultTableViewCell.swift */; };
 		D838F7EE83A030E0D0E79D81 /* Pods_PartyBotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FD2104A90100295F43CA07 /* Pods_PartyBotUITests.framework */; };
 		ED299F7C1D3A249200FB5154 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED299F7B1D3A249200FB5154 /* Spotify.framework */; };
 		ED299F7E1D3A24FD00FB5154 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED299F7D1D3A24FD00FB5154 /* AVFoundation.framework */; };
@@ -54,6 +55,7 @@
 		B1145DBF3A1EB5C94A120417 /* Pods-PartyBotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyBotUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartyBotUITests/Pods-PartyBotUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CAA34CFF1D3A710700C10E57 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CAA34D011D3A815200C10E57 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CAA34D031D3A8B6C00C10E57 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		ED299F7B1D3A249200FB5154 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		ED299F7D1D3A24FD00FB5154 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		ED299F7F1D3A253700FB5154 /* PartyBot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PartyBot-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
@@ -162,6 +164,7 @@
 				ED92FCB21D3A0FF5000A93BF /* LoginViewController.swift */,
 				CAA34D011D3A815200C10E57 /* MainViewController.swift */,
 				CAA34CFF1D3A710700C10E57 /* SearchViewController.swift */,
+				CAA34D031D3A8B6C00C10E57 /* SearchResultTableViewCell.swift */,
 				ED92FCB41D3A0FF5000A93BF /* Main.storyboard */,
 				ED92FCB71D3A0FF5000A93BF /* Assets.xcassets */,
 				ED92FCB91D3A0FF5000A93BF /* LaunchScreen.storyboard */,
@@ -453,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAA34D041D3A8B6C00C10E57 /* SearchResultTableViewCell.swift in Sources */,
 				CAA34D001D3A710700C10E57 /* SearchViewController.swift in Sources */,
 				ED92FCB31D3A0FF5000A93BF /* LoginViewController.swift in Sources */,
 				ED92FCB11D3A0FF5000A93BF /* AppDelegate.swift in Sources */,

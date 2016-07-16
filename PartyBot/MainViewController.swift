@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func addSongButtonTapped(sender: UIButton) {
-    
+        performSegueWithIdentifier("toSearch", sender: self)
     }
     
     func playSong(trackURI: NSURL) {

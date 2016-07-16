@@ -23,7 +23,8 @@ class MainViewController: UIViewController {
     
     var tracks = [PBTrack]()
     
-    var currentSong = 0
+    var didRemove = false
+    
     
     // MARK: - Subviews
     
@@ -42,18 +43,39 @@ class MainViewController: UIViewController {
             self.tableView.reloadData()
             print(self.tracks.count)
         }
+        
+        let stateRef = FIRDatabase.database().reference().child("State")
+        stateRef.observeEventType(.Value) { (snapshot: FIRDataSnapshot) in
+            if(snapshot.exists()){
+                if(self.player.currentTrackURI != nil){
+                    self.player.setIsPlaying(snapshot.value as! Bool, callback: nil)
+                }
+            }
+        }
     }
     
     // MARK: - IBActions
     
     @IBAction func pausedTapped(sender: AnyObject) {
-        if(tracks.count > 0){
-            playSong(NSURL(string: tracks[0].uri)!)
+        if(player.currentTrackURI == nil && tracks.count > 0){
+            playSong(tracks[0].uri)
+            let newTrack = tracks.removeFirst()
+            songPlayingTitle.text = newTrack.title
+            artistPlayingTitle.text = newTrack.artist
+            tableView.reloadData()
+            
+        }else{
+            player.setIsPlaying(!player.isPlaying, callback: nil)
         }
     }
     
     @IBAction func nextPressed(sender: AnyObject) {
-        player.seekToOffset(207, callback: nil)
+        do{
+            try player.stop()
+        }catch{
+
+        }
+        playSong(tracks[1].uri)
     }
     
     @IBAction func previousTapped(sender: AnyObject) {
@@ -64,12 +86,15 @@ class MainViewController: UIViewController {
         performSegueWithIdentifier("toSearch", sender: self)
     }
     
-    func playSong(trackURI: NSURL) {
+    func playSong(trackURIString: String) {
+        
+        
         guard SPTAuth.defaultInstance().session != nil &&
             SPTAuth.defaultInstance().session.isValid() else {
                 return
         }
         
+        let trackURI = NSURL(string:  trackURIString)!
         do {
             try player.startWithClientId(SPTAuth.defaultInstance().clientID)
         } catch let error as NSError {
@@ -108,12 +133,26 @@ extension MainViewController: UITableViewDataSource{
 
 extension MainViewController: SPTAudioStreamingPlaybackDelegate{
     func audioStreaming(audioStreaming: SPTAudioStreamingController!, didChangePlaybackStatus isPlaying: Bool) {
-        if(!isPlaying && currentSong + 1 < tracks.count - 1){
-            currentSong += 1
-            let track = tracks[currentSong]
-            playSong(NSURL(string: track.uri)!)
-            
-            
+        FIRDatabase.database().reference().child("State").setValue(isPlaying)
+
+      
+    }
+    
+    
+    func audioStreamingDidBecomeInactivePlaybackDevice(audioStreaming: SPTAudioStreamingController!) {
+        print("ran")
+        if(tracks.count > 0 && !didRemove){
+            let newTrack = tracks.removeFirst()
+            songPlayingTitle.text = newTrack.title
+            artistPlayingTitle.text = newTrack.artist
+            tableView.reloadData()
+            FIRDatabase.database().reference().child("Tracks").child(tracks[0].key).removeValue()
+            let track = tracks[0]
+            playSong(track.uri)
+            didRemove = true
+        }else{
+            didRemove = false
         }
     }
+    
 }

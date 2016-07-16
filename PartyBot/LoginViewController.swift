@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     var player = SPTAudioStreamingController.sharedInstance()
 
@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .blackColor()
         
         let ref = FIRDatabase.database().reference().child("Tracks")
         ref.observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot) in
@@ -54,9 +55,9 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: SPTAuthViewDelegate {
+extension LoginViewController: SPTAuthViewDelegate {
     func authenticationViewController(authenticationViewController: SPTAuthViewController!, didLoginWithSession session: SPTSession!) {
-        print("logged in")
+        performSegueWithIdentifier("toQueue", sender: self)
     }
     
     func authenticationViewControllerDidCancelLogin(authenticationViewController: SPTAuthViewController!) {

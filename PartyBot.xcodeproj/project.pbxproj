@@ -20,7 +20,6 @@
 		ED92FCC61D3A0FF5000A93BF /* PartyBotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92FCC51D3A0FF5000A93BF /* PartyBotTests.swift */; };
 		ED92FCD11D3A0FF6000A93BF /* PartyBotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92FCD01D3A0FF6000A93BF /* PartyBotUITests.swift */; };
 		ED92FCDF1D3A10E4000A93BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED92FCDE1D3A10E4000A93BF /* GoogleService-Info.plist */; };
-		EDC572F91D3A164F002D197F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED92FCBC1D3A0FF5000A93BF /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -279,7 +278,6 @@
 				ED92FCBB1D3A0FF5000A93BF /* LaunchScreen.storyboard in Resources */,
 				ED92FCB81D3A0FF5000A93BF /* Assets.xcassets in Resources */,
 				ED92FCDF1D3A10E4000A93BF /* GoogleService-Info.plist in Resources */,
-				EDC572F91D3A164F002D197F /* Info.plist in Resources */,
 				ED92FCB61D3A0FF5000A93BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

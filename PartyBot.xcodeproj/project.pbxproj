@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0182C44C1D3A202A0062110B /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0182C44B1D3A202A0062110B /* MainPageViewController.swift */; };
+		0182C44F1D3A2B290062110B /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0182C44E1D3A2B290062110B /* HeaderTableViewCell.swift */; };
+		0182C4511D3A2B350062110B /* CurrentSongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0182C4501D3A2B350062110B /* CurrentSongTableViewCell.swift */; };
+		0182C4531D3A2B3F0062110B /* NextSongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0182C4521D3A2B3F0062110B /* NextSongTableViewCell.swift */; };
+		0182C4551D3A301A0062110B /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0182C4541D3A301A0062110B /* InformationCell.swift */; };
 		048A660287A3BD98E0BC5C14 /* Pods_PartyBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3016D7B764E8049B5C5089C5 /* Pods_PartyBot.framework */; };
 		ED92FCB11D3A0FF5000A93BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92FCB01D3A0FF5000A93BF /* AppDelegate.swift */; };
 		ED92FCB31D3A0FF5000A93BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92FCB21D3A0FF5000A93BF /* ViewController.swift */; };
@@ -37,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0182C44B1D3A202A0062110B /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		0182C44E1D3A2B290062110B /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		0182C4501D3A2B350062110B /* CurrentSongTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSongTableViewCell.swift; sourceTree = "<group>"; };
+		0182C4521D3A2B3F0062110B /* NextSongTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextSongTableViewCell.swift; sourceTree = "<group>"; };
+		0182C4541D3A301A0062110B /* InformationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationCell.swift; sourceTree = "<group>"; };
 		3016D7B764E8049B5C5089C5 /* Pods_PartyBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA4574C0B3D832092CE0908 /* Pods-PartyBot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyBot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PartyBot/Pods-PartyBot.debug.xcconfig"; sourceTree = "<group>"; };
 		D2BBA9584CFAA1FC8C06B83C /* Pods-PartyBot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyBot.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartyBot/Pods-PartyBot.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +92,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0182C44A1D3A20180062110B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0182C44B1D3A202A0062110B /* MainPageViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0182C44D1D3A2B170062110B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0182C44E1D3A2B290062110B /* HeaderTableViewCell.swift */,
+				0182C4501D3A2B350062110B /* CurrentSongTableViewCell.swift */,
+				0182C4521D3A2B3F0062110B /* NextSongTableViewCell.swift */,
+				0182C4541D3A301A0062110B /* InformationCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		B1D25ED085CA731E6142CF5C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +153,8 @@
 		ED92FCAF1D3A0FF5000A93BF /* PartyBot */ = {
 			isa = PBXGroup;
 			children = (
+				0182C44D1D3A2B170062110B /* Views */,
+				0182C44A1D3A20180062110B /* ViewControllers */,
 				ED92FCB01D3A0FF5000A93BF /* AppDelegate.swift */,
 				ED92FCB21D3A0FF5000A93BF /* ViewController.swift */,
 				ED92FCB41D3A0FF5000A93BF /* Main.storyboard */,
@@ -337,7 +368,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0182C44F1D3A2B290062110B /* HeaderTableViewCell.swift in Sources */,
+				0182C4511D3A2B350062110B /* CurrentSongTableViewCell.swift in Sources */,
+				0182C4551D3A301A0062110B /* InformationCell.swift in Sources */,
 				ED92FCB31D3A0FF5000A93BF /* ViewController.swift in Sources */,
+				0182C4531D3A2B3F0062110B /* NextSongTableViewCell.swift in Sources */,
+				0182C44C1D3A202A0062110B /* MainPageViewController.swift in Sources */,
 				ED92FCB11D3A0FF5000A93BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,20 +28,36 @@ class LightHelper{
         Alamofire.request(.PUT, url + "/lights/3/state", parameters: ["on" : true], encoding: .JSON)
     }
     
-    static func flashLightsAtTempo(tempo: Double, duration: Double){
-        let speed = 1.0 / (tempo / 60.0)
-        LightHelper.startDate = NSDate()
-        LightHelper.duration = duration
-        LightHelper.turnOnAllLights()
+    static func flashLightsAtTempo(song: SPTPartialTrack){
         
-        LightHelper.timer = NSTimer.scheduledTimerWithTimeInterval(speed, target: self, selector: #selector(flashBulb), userInfo: nil, repeats: true)
+        do{
+          let features = try SPTRequest.createRequestForURL(NSURL(string: "https://api.spotify.com/v1/audio-features/?ids=\(song.identifier)")!, withAccessToken: SPTAuth.defaultInstance().session.accessToken, httpMethod: "GET", values: nil, valueBodyIsJSON: true, sendDataAsQueryString: true)
+        SPTRequest.sharedHandler().performRequest(features) { (error: NSError!, response: NSURLResponse!, data: NSData!) in
+            if error != nil{
+                return
+            }
+            LightHelper.duration = song.duration
+            let json = JSON(data: data)
+            let tempo = json["audio_features"][0]["tempo"].doubleValue
+            let speed = 1.0 / (tempo / 60.0)
+            LightHelper.startDate = NSDate()
+            LightHelper.duration = duration
+            LightHelper.turnOnAllLights()
+            
+            
+            LightHelper.timer = NSTimer.scheduledTimerWithTimeInterval(speed, target: self, selector: #selector(flashBulb), userInfo: nil, repeats: true)
+        }
+        }catch{
+        
+        }
+        
  
         
     }
     
     @objc static func flashBulb(){
         let bulb = arc4random_uniform(3) + 1
-        
+     
         Alamofire.request(.PUT, url + "/lights/\(bulb)/state", parameters: ["hue" : Int(arc4random_uniform(65535)), "transitiontime" : 0], encoding: .JSON)
         Alamofire.request(.PUT, url + "/lights/\(bulb)/state", parameters: ["on" : true, "transitiontime" :0], encoding: .JSON)
         if(NSDate().timeIntervalSinceDate(LightHelper.startDate) > LightHelper.duration){

@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         
         if SPTAuth.defaultInstance().session == nil {
             
-            var vc = SPTAuthViewController.authenticationViewController()
+            let vc = SPTAuthViewController.authenticationViewController()
             
             self.presentViewController(vc, animated: true, completion: nil)
         }

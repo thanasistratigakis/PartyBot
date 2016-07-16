@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        FIRApp.configure()
+        setupThirdPartyFramworks()
+        
         return true
     }
 
@@ -43,6 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func setupThirdPartyFramworks() {
+        // Spotify
+        SPTAuth.defaultInstance().clientID = Constant.SPTClientID
+        SPTAuth.defaultInstance().redirectURL = NSURL(string: "partybot://")
+        SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope]
+        
+        // Firebase
+        FIRApp.configure()
+    }
 }
 

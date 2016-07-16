@@ -10,6 +10,7 @@
 		048A660287A3BD98E0BC5C14 /* Pods_PartyBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3016D7B764E8049B5C5089C5 /* Pods_PartyBot.framework */; };
 		ED299F7C1D3A249200FB5154 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED299F7B1D3A249200FB5154 /* Spotify.framework */; };
 		ED299F7E1D3A24FD00FB5154 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED299F7D1D3A24FD00FB5154 /* AVFoundation.framework */; };
+		ED299F811D3A2DD900FB5154 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED299F801D3A2DD900FB5154 /* Constants.swift */; };
 		ED92FCB11D3A0FF5000A93BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92FCB01D3A0FF5000A93BF /* AppDelegate.swift */; };
 		ED92FCB31D3A0FF5000A93BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92FCB21D3A0FF5000A93BF /* ViewController.swift */; };
 		ED92FCB61D3A0FF5000A93BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED92FCB41D3A0FF5000A93BF /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		ED299F7B1D3A249200FB5154 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		ED299F7D1D3A24FD00FB5154 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		ED299F7F1D3A253700FB5154 /* PartyBot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PartyBot-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		ED299F801D3A2DD900FB5154 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED92FCAD1D3A0FF5000A93BF /* PartyBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED92FCB01D3A0FF5000A93BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED92FCB21D3A0FF5000A93BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				ED92FCB01D3A0FF5000A93BF /* AppDelegate.swift */,
+				ED299F801D3A2DD900FB5154 /* Constants.swift */,
 				ED92FCB21D3A0FF5000A93BF /* ViewController.swift */,
 				ED92FCB41D3A0FF5000A93BF /* Main.storyboard */,
 				ED92FCB71D3A0FF5000A93BF /* Assets.xcassets */,
@@ -349,6 +352,7 @@
 			files = (
 				ED92FCB31D3A0FF5000A93BF /* ViewController.swift in Sources */,
 				ED92FCB11D3A0FF5000A93BF /* AppDelegate.swift in Sources */,
+				ED299F811D3A2DD900FB5154 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

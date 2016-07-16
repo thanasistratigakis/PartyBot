@@ -13,7 +13,7 @@ class PBTrack: NSObject {
     
     let title: String!
     let artist: String!
-    //let album: String!
+    let album: String!
     let key: String!
     let uri: String!
     let itemRef: FIRDatabaseReference?
@@ -24,6 +24,7 @@ class PBTrack: NSObject {
         self.uri = uri
         self.itemRef = nil
         self.key = nil
+        self.album = ""
     }
     
     init (snapshot:FIRDataSnapshot) {
@@ -45,6 +46,11 @@ class PBTrack: NSObject {
             uri = trackUri
         } else {
             uri = ""
+        }
+        if let album = snapshot.value!["url"] as? String{
+            self.album = album
+        }else{
+            album = ""
         }
     }
     

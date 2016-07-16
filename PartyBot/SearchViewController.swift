@@ -79,10 +79,9 @@ extension SearchViewController: UITableViewDelegate {
         let ref = FIRDatabase.database().reference().child("Tracks")
         
         let selectedResult = searchResults[indexPath.row]
-        
         ref.childByAutoId().updateChildValues(["title" : selectedResult.name,
             "uri" : selectedResult.playableUri.absoluteString,
-            "artist" : selectedResult.artists.first!.name])
+            "artist" : selectedResult.artists.first!.name, "url" : (selectedResult.album.covers[0].imageURL!.absoluteString)])
 
         dismissViewControllerAnimated(true, completion: nil)
     }

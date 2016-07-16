@@ -9,6 +9,7 @@ target 'PartyBot' do
     pod 'Firebase/Database'
 	pod 'Alamofire', '~> 3.4'
 	pod 'SwiftyJSON'
+    pod 'AlamofireImage'
 
 end
 

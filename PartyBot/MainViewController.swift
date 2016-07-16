@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import AlamofireImage
 
 class MainViewController: UIViewController {
     
@@ -107,6 +108,7 @@ class MainViewController: UIViewController {
         songPlayingTitle.text = newTrack.title
         artistPlayingTitle.text = newTrack.artist
         tableView.reloadData()
+        albumImageView.af_setImageWithURL(NSURL(string: newTrack.album)!)
     }
     
     func playSong(trackURIString: String) {

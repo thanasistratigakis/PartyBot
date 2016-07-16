@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct Track {
+struct PBTrack {
     
     let title: String!
     let artist: String!

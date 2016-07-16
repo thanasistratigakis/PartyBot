@@ -113,6 +113,7 @@ extension MainViewController: SPTAudioStreamingPlaybackDelegate{
             let track = tracks[currentSong]
             playSong(NSURL(string: track.uri)!)
             
+            
         }
     }
 }

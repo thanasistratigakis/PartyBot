@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         setupThirdPartyFramworks()
         
+        do{
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: .DefaultToSpeaker)
+            try AVAudioSession.sharedInstance().setActive(true)
+        }catch{
+            print("failed")
+        }
+
 //        window = UIWindow(frame: UIScreen.mainScreen().bounds)
 //        
 //        let authViewController = SPTAuthViewController.authenticationViewController()

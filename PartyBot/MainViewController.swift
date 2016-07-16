@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var songPlayingTitle: UILabel!
     @IBOutlet weak var artistPlayingTitle: UILabel!
     @IBOutlet weak var albumPlayingTitle: UILabel!
+    @IBOutlet weak var playButton: UIButton!
     
     var player = SPTAudioStreamingController.sharedInstance()
     
@@ -25,7 +26,7 @@ class MainViewController: UIViewController {
     
     var didRemove = false
     
-    
+        
     // MARK: - Subviews
     
     @IBOutlet weak var tableView: UITableView!
@@ -61,14 +62,17 @@ class MainViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func pausedTapped(sender: AnyObject) {
+        playButton.selected = !playButton.selected
         
         if(player.currentTrackURI == nil){
             removeTrackFromFirebase()
+            playButton.selected = false
         }else{
-            player.setIsPlaying(!player.isPlaying, callback: nil)
+            player.setIsPlaying(!playButton.selected, callback: nil)
             
         }
-        FIRDatabase.database().reference().child("State").setValue(player.isPlaying)
+        
+        FIRDatabase.database().reference().child("State").setValue(!playButton.selected)
 
     }
     
@@ -87,9 +91,6 @@ class MainViewController: UIViewController {
 
         }
 
-    }
-    
-    @IBAction func previousTapped(sender: AnyObject) {
     }
     
     

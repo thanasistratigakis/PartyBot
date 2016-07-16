@@ -66,6 +66,8 @@ extension SearchViewController: UITableViewDataSource {
         
         let track = searchResults[indexPath.row]
         cell.nameLabel.text = track.name
+        cell.artistLabel.text = (track.artists.first as! SPTPartialArtist).name
+        
 //        cell.artistLabel.text = track.artists.first as! String
         
         return cell
@@ -79,8 +81,10 @@ extension SearchViewController: UITableViewDelegate {
         let selectedResult = searchResults[indexPath.row]
         
         ref.childByAutoId().updateChildValues(["title" : selectedResult.name,
-            "uri" : selectedResult.playableUri,
-            "artist" : selectedResult.artists.first!])
+            "uri" : selectedResult.playableUri.absoluteString,
+            "artist" : selectedResult.artists.first!.name])
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 

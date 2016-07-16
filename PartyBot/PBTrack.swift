@@ -13,6 +13,7 @@ struct PBTrack {
     
     let title: String!
     let artist: String!
+    //let album: String!
     let uri: String!
     let itemRef: FIRDatabaseReference?
 

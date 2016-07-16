@@ -28,15 +28,15 @@ class LightHelper{
         Alamofire.request(.PUT, url + "/lights/3/state", parameters: ["on" : true], encoding: .JSON)
     }
     
-    static func flashLightsAtTempo(song: SPTPartialTrack){
+    static func flashLightsAtTempo(duration: Double, id: String){
         
         do{
-          let features = try SPTRequest.createRequestForURL(NSURL(string: "https://api.spotify.com/v1/audio-features/?ids=\(song.identifier)")!, withAccessToken: SPTAuth.defaultInstance().session.accessToken, httpMethod: "GET", values: nil, valueBodyIsJSON: true, sendDataAsQueryString: true)
+          let features = try SPTRequest.createRequestForURL(NSURL(string: "https://api.spotify.com/v1/audio-features/?ids=\(id)")!, withAccessToken: SPTAuth.defaultInstance().session.accessToken, httpMethod: "GET", values: nil, valueBodyIsJSON: true, sendDataAsQueryString: true)
         SPTRequest.sharedHandler().performRequest(features) { (error: NSError!, response: NSURLResponse!, data: NSData!) in
             if error != nil{
                 return
             }
-            LightHelper.duration = song.duration
+            LightHelper.duration = duration
             let json = JSON(data: data)
             let tempo = json["audio_features"][0]["tempo"].doubleValue
             let speed = 1.0 / (tempo / 60.0)

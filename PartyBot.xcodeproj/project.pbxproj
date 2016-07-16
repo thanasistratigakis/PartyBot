@@ -12,6 +12,8 @@
 		CAA34D001D3A710700C10E57 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA34CFF1D3A710700C10E57 /* SearchViewController.swift */; };
 		CAA34D021D3A815200C10E57 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA34D011D3A815200C10E57 /* MainViewController.swift */; };
 		CAA34D041D3A8B6C00C10E57 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA34D031D3A8B6C00C10E57 /* SearchResultTableViewCell.swift */; };
+		D332D1871D3A96600002D52A /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332D1861D3A96600002D52A /* TrackCell.swift */; };
+		D332D18A1D3A9BDC0002D52A /* LightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D332D1891D3A9BDC0002D52A /* LightHelper.swift */; };
 		D838F7EE83A030E0D0E79D81 /* Pods_PartyBotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FD2104A90100295F43CA07 /* Pods_PartyBotUITests.framework */; };
 		ED299F7C1D3A249200FB5154 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED299F7B1D3A249200FB5154 /* Spotify.framework */; };
 		ED299F7E1D3A24FD00FB5154 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED299F7D1D3A24FD00FB5154 /* AVFoundation.framework */; };
@@ -56,6 +58,8 @@
 		CAA34CFF1D3A710700C10E57 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CAA34D011D3A815200C10E57 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CAA34D031D3A8B6C00C10E57 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		D332D1861D3A96600002D52A /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		D332D1891D3A9BDC0002D52A /* LightHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightHelper.swift; sourceTree = "<group>"; };
 		ED299F7B1D3A249200FB5154 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		ED299F7D1D3A24FD00FB5154 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		ED299F7F1D3A253700FB5154 /* PartyBot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PartyBot-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
@@ -133,6 +137,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D332D1881D3A9BDC0002D52A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D332D1891D3A9BDC0002D52A /* LightHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		ED92FCA41D3A0FF5000A93BF = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +170,7 @@
 		ED92FCAF1D3A0FF5000A93BF /* PartyBot */ = {
 			isa = PBXGroup;
 			children = (
+				D332D1881D3A9BDC0002D52A /* Helpers */,
 				ED92FCB01D3A0FF5000A93BF /* AppDelegate.swift */,
 				ED299F801D3A2DD900FB5154 /* Constants.swift */,
 				ED299F821D3A463200FB5154 /* PBTrack.swift */,
@@ -171,6 +184,7 @@
 				ED92FCBC1D3A0FF5000A93BF /* Info.plist */,
 				ED92FCDE1D3A10E4000A93BF /* GoogleService-Info.plist */,
 				ED299F7F1D3A253700FB5154 /* PartyBot-Bridging-Header.h */,
+				D332D1861D3A96600002D52A /* TrackCell.swift */,
 			);
 			path = PartyBot;
 			sourceTree = "<group>";
@@ -460,9 +474,11 @@
 				CAA34D001D3A710700C10E57 /* SearchViewController.swift in Sources */,
 				ED92FCB31D3A0FF5000A93BF /* LoginViewController.swift in Sources */,
 				ED92FCB11D3A0FF5000A93BF /* AppDelegate.swift in Sources */,
+				D332D18A1D3A9BDC0002D52A /* LightHelper.swift in Sources */,
 				CAA34D021D3A815200C10E57 /* MainViewController.swift in Sources */,
 				ED299F811D3A2DD900FB5154 /* Constants.swift in Sources */,
 				ED299F831D3A463200FB5154 /* PBTrack.swift in Sources */,
+				D332D1871D3A96600002D52A /* TrackCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

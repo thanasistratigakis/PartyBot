@@ -79,8 +79,9 @@ extension SearchViewController: UITableViewDelegate {
         let selectedResult = searchResults[indexPath.row]
         
         ref.childByAutoId().updateChildValues(["title" : selectedResult.name,
-            "uri" : selectedResult.playableUri,
-            "artist" : selectedResult.artists.first!])
+            "uri" : selectedResult.playableUri.absoluteString,
+            "artist" : selectedResult.artists.first!.name])
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 

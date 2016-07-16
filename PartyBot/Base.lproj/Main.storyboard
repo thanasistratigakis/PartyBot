@@ -62,11 +62,11 @@
                                 <rect key="frame" x="0.0" y="273" width="600" height="267"/>
                                 <color key="backgroundColor" red="0.24313725489999999" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="14I-Xd-c8n">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackCell" rowHeight="79" id="14I-Xd-c8n" customClass="TrackCell" customModule="PartyBot" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="14I-Xd-c8n" id="cnk-eE-e84">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="78"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="78.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIt-Os-Jtl">
@@ -91,8 +91,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.24313725489999999" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="artistNameCell" destination="jIt-Os-Jtl" id="u7i-vw-is3"/>
+                                            <outlet property="songNameLabel" destination="v05-Z8-eTA" id="mjW-dW-0Dh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ARt-HE-in3" id="Pfr-Hx-kyQ"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EG-cD-ciA">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
@@ -155,14 +162,23 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idC-Aj-H3i">
                                 <rect key="frame" x="277" y="213" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="pausedTapped:" destination="ARt-HE-in3" eventType="touchUpInside" id="vVM-JX-yeh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgM-3f-TxA">
                                 <rect key="frame" x="353" y="213" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="nextPressed:" destination="ARt-HE-in3" eventType="touchUpInside" id="j8J-AF-yvj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeC-CR-Txe">
                                 <rect key="frame" x="201" y="213" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="previousTapped:" destination="ARt-HE-in3" eventType="touchUpInside" id="Oja-da-CiX"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UP NEXT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcp-IO-aaR">
                                 <rect key="frame" x="20" y="251" width="71" height="14"/>
@@ -202,8 +218,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="albumImageView" destination="3Jw-eL-tEB" id="5m9-Rq-qMf"/>
+                        <outlet property="albumPlayingTitle" destination="s8S-ci-Kzd" id="Ohc-Cs-AQR"/>
+                        <outlet property="artistPlayingTitle" destination="X5t-ze-5pQ" id="xgM-vp-73I"/>
+                        <outlet property="songPlayingTitle" destination="2z6-Rt-7A9" id="Ty0-cP-vee"/>
                         <outlet property="tableView" destination="1e4-vv-hjn" id="1O5-BB-Lr2"/>
-                        <segue destination="ozv-Ae-F08" kind="show" identifier="toSearch" id="bMQ-Vi-eDt"/>
+                        <segue destination="ozv-Ae-F08" kind="showDetail" identifier="toSearch" id="bMQ-Vi-eDt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2YA-60-c9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -234,7 +254,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CfX-W5-0Nv" id="Ozg-cG-Gsq">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Death Cab for Cutie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsM-sx-HN2">

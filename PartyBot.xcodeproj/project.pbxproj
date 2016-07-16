@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		048A660287A3BD98E0BC5C14 /* Pods_PartyBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3016D7B764E8049B5C5089C5 /* Pods_PartyBot.framework */; };
+		ED92FCB11D3A0FF5000A93BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92FCB01D3A0FF5000A93BF /* AppDelegate.swift */; };
+		ED92FCB31D3A0FF5000A93BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92FCB21D3A0FF5000A93BF /* ViewController.swift */; };
+		ED92FCB61D3A0FF5000A93BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED92FCB41D3A0FF5000A93BF /* Main.storyboard */; };
+		ED92FCB81D3A0FF5000A93BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED92FCB71D3A0FF5000A93BF /* Assets.xcassets */; };
+		ED92FCBB1D3A0FF5000A93BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED92FCB91D3A0FF5000A93BF /* LaunchScreen.storyboard */; };
+		ED92FCC61D3A0FF5000A93BF /* PartyBotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92FCC51D3A0FF5000A93BF /* PartyBotTests.swift */; };
+		ED92FCD11D3A0FF6000A93BF /* PartyBotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92FCD01D3A0FF6000A93BF /* PartyBotUITests.swift */; };
+		ED92FCDF1D3A10E4000A93BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED92FCDE1D3A10E4000A93BF /* GoogleService-Info.plist */; };
+		EDC572F91D3A164F002D197F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED92FCBC1D3A0FF5000A93BF /* Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ED92FCC21D3A0FF5000A93BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED92FCA51D3A0FF5000A93BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED92FCAC1D3A0FF5000A93BF;
+			remoteInfo = PartyBot;
+		};
+		ED92FCCD1D3A0FF5000A93BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED92FCA51D3A0FF5000A93BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED92FCAC1D3A0FF5000A93BF;
+			remoteInfo = PartyBot;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3016D7B764E8049B5C5089C5 /* Pods_PartyBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FA4574C0B3D832092CE0908 /* Pods-PartyBot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyBot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PartyBot/Pods-PartyBot.debug.xcconfig"; sourceTree = "<group>"; };
+		D2BBA9584CFAA1FC8C06B83C /* Pods-PartyBot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyBot.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartyBot/Pods-PartyBot.release.xcconfig"; sourceTree = "<group>"; };
+		ED92FCAD1D3A0FF5000A93BF /* PartyBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED92FCB01D3A0FF5000A93BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ED92FCB21D3A0FF5000A93BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ED92FCB51D3A0FF5000A93BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ED92FCB71D3A0FF5000A93BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ED92FCBA1D3A0FF5000A93BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ED92FCBC1D3A0FF5000A93BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED92FCC11D3A0FF5000A93BF /* PartyBotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartyBotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED92FCC51D3A0FF5000A93BF /* PartyBotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyBotTests.swift; sourceTree = "<group>"; };
+		ED92FCC71D3A0FF5000A93BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED92FCCC1D3A0FF5000A93BF /* PartyBotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartyBotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED92FCD01D3A0FF6000A93BF /* PartyBotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyBotUITests.swift; sourceTree = "<group>"; };
+		ED92FCD21D3A0FF6000A93BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED92FCDE1D3A10E4000A93BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED92FCAA1D3A0FF5000A93BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				048A660287A3BD98E0BC5C14 /* Pods_PartyBot.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED92FCBE1D3A0FF5000A93BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED92FCC91D3A0FF5000A93BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B1D25ED085CA731E6142CF5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3016D7B764E8049B5C5089C5 /* Pods_PartyBot.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C16E34A82CF445C62EEB91AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5FA4574C0B3D832092CE0908 /* Pods-PartyBot.debug.xcconfig */,
+				D2BBA9584CFAA1FC8C06B83C /* Pods-PartyBot.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ED92FCA41D3A0FF5000A93BF = {
+			isa = PBXGroup;
+			children = (
+				ED92FCAF1D3A0FF5000A93BF /* PartyBot */,
+				ED92FCC41D3A0FF5000A93BF /* PartyBotTests */,
+				ED92FCCF1D3A0FF5000A93BF /* PartyBotUITests */,
+				ED92FCAE1D3A0FF5000A93BF /* Products */,
+				C16E34A82CF445C62EEB91AD /* Pods */,
+				B1D25ED085CA731E6142CF5C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ED92FCAE1D3A0FF5000A93BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED92FCAD1D3A0FF5000A93BF /* PartyBot.app */,
+				ED92FCC11D3A0FF5000A93BF /* PartyBotTests.xctest */,
+				ED92FCCC1D3A0FF5000A93BF /* PartyBotUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED92FCAF1D3A0FF5000A93BF /* PartyBot */ = {
+			isa = PBXGroup;
+			children = (
+				ED92FCB01D3A0FF5000A93BF /* AppDelegate.swift */,
+				ED92FCB21D3A0FF5000A93BF /* ViewController.swift */,
+				ED92FCB41D3A0FF5000A93BF /* Main.storyboard */,
+				ED92FCB71D3A0FF5000A93BF /* Assets.xcassets */,
+				ED92FCB91D3A0FF5000A93BF /* LaunchScreen.storyboard */,
+				ED92FCBC1D3A0FF5000A93BF /* Info.plist */,
+				ED92FCDE1D3A10E4000A93BF /* GoogleService-Info.plist */,
+			);
+			path = PartyBot;
+			sourceTree = "<group>";
+		};
+		ED92FCC41D3A0FF5000A93BF /* PartyBotTests */ = {
+			isa = PBXGroup;
+			children = (
+				ED92FCC51D3A0FF5000A93BF /* PartyBotTests.swift */,
+				ED92FCC71D3A0FF5000A93BF /* Info.plist */,
+			);
+			path = PartyBotTests;
+			sourceTree = "<group>";
+		};
+		ED92FCCF1D3A0FF5000A93BF /* PartyBotUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ED92FCD01D3A0FF6000A93BF /* PartyBotUITests.swift */,
+				ED92FCD21D3A0FF6000A93BF /* Info.plist */,
+			);
+			path = PartyBotUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED92FCAC1D3A0FF5000A93BF /* PartyBot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED92FCD51D3A0FF6000A93BF /* Build configuration list for PBXNativeTarget "PartyBot" */;
+			buildPhases = (
+				13369621F5B6054B86AE9837 /* Check Pods Manifest.lock */,
+				ED92FCA91D3A0FF5000A93BF /* Sources */,
+				ED92FCAA1D3A0FF5000A93BF /* Frameworks */,
+				ED92FCAB1D3A0FF5000A93BF /* Resources */,
+				4763D456F494A38D12C2DB15 /* Embed Pods Frameworks */,
+				1E4E58A3DEEE91DE64ECDF77 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PartyBot;
+			productName = PartyBot;
+			productReference = ED92FCAD1D3A0FF5000A93BF /* PartyBot.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ED92FCC01D3A0FF5000A93BF /* PartyBotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED92FCD81D3A0FF6000A93BF /* Build configuration list for PBXNativeTarget "PartyBotTests" */;
+			buildPhases = (
+				ED92FCBD1D3A0FF5000A93BF /* Sources */,
+				ED92FCBE1D3A0FF5000A93BF /* Frameworks */,
+				ED92FCBF1D3A0FF5000A93BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED92FCC31D3A0FF5000A93BF /* PBXTargetDependency */,
+			);
+			name = PartyBotTests;
+			productName = PartyBotTests;
+			productReference = ED92FCC11D3A0FF5000A93BF /* PartyBotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ED92FCCB1D3A0FF5000A93BF /* PartyBotUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED92FCDB1D3A0FF6000A93BF /* Build configuration list for PBXNativeTarget "PartyBotUITests" */;
+			buildPhases = (
+				ED92FCC81D3A0FF5000A93BF /* Sources */,
+				ED92FCC91D3A0FF5000A93BF /* Frameworks */,
+				ED92FCCA1D3A0FF5000A93BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED92FCCE1D3A0FF5000A93BF /* PBXTargetDependency */,
+			);
+			name = PartyBotUITests;
+			productName = PartyBotUITests;
+			productReference = ED92FCCC1D3A0FF5000A93BF /* PartyBotUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED92FCA51D3A0FF5000A93BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = PartyBot;
+				TargetAttributes = {
+					ED92FCAC1D3A0FF5000A93BF = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					ED92FCC01D3A0FF5000A93BF = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = ED92FCAC1D3A0FF5000A93BF;
+					};
+					ED92FCCB1D3A0FF5000A93BF = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = ED92FCAC1D3A0FF5000A93BF;
+					};
+				};
+			};
+			buildConfigurationList = ED92FCA81D3A0FF5000A93BF /* Build configuration list for PBXProject "PartyBot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ED92FCA41D3A0FF5000A93BF;
+			productRefGroup = ED92FCAE1D3A0FF5000A93BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED92FCAC1D3A0FF5000A93BF /* PartyBot */,
+				ED92FCC01D3A0FF5000A93BF /* PartyBotTests */,
+				ED92FCCB1D3A0FF5000A93BF /* PartyBotUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED92FCAB1D3A0FF5000A93BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED92FCBB1D3A0FF5000A93BF /* LaunchScreen.storyboard in Resources */,
+				ED92FCB81D3A0FF5000A93BF /* Assets.xcassets in Resources */,
+				ED92FCDF1D3A10E4000A93BF /* GoogleService-Info.plist in Resources */,
+				EDC572F91D3A164F002D197F /* Info.plist in Resources */,
+				ED92FCB61D3A0FF5000A93BF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED92FCBF1D3A0FF5000A93BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED92FCCA1D3A0FF5000A93BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13369621F5B6054B86AE9837 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1E4E58A3DEEE91DE64ECDF77 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PartyBot/Pods-PartyBot-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4763D456F494A38D12C2DB15 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PartyBot/Pods-PartyBot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED92FCA91D3A0FF5000A93BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED92FCB31D3A0FF5000A93BF /* ViewController.swift in Sources */,
+				ED92FCB11D3A0FF5000A93BF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED92FCBD1D3A0FF5000A93BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED92FCC61D3A0FF5000A93BF /* PartyBotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED92FCC81D3A0FF5000A93BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED92FCD11D3A0FF6000A93BF /* PartyBotUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED92FCC31D3A0FF5000A93BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED92FCAC1D3A0FF5000A93BF /* PartyBot */;
+			targetProxy = ED92FCC21D3A0FF5000A93BF /* PBXContainerItemProxy */;
+		};
+		ED92FCCE1D3A0FF5000A93BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED92FCAC1D3A0FF5000A93BF /* PartyBot */;
+			targetProxy = ED92FCCD1D3A0FF5000A93BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ED92FCB41D3A0FF5000A93BF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED92FCB51D3A0FF5000A93BF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ED92FCB91D3A0FF5000A93BF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED92FCBA1D3A0FF5000A93BF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ED92FCD31D3A0FF6000A93BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ED92FCD41D3A0FF6000A93BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED92FCD61D3A0FF6000A93BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FA4574C0B3D832092CE0908 /* Pods-PartyBot.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PartyBot/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PartyBot.PartyBot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ED92FCD71D3A0FF6000A93BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2BBA9584CFAA1FC8C06B83C /* Pods-PartyBot.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PartyBot/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PartyBot.PartyBot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		ED92FCD91D3A0FF6000A93BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PartyBotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PartyBot.PartyBotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PartyBot.app/PartyBot";
+			};
+			name = Debug;
+		};
+		ED92FCDA1D3A0FF6000A93BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PartyBotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PartyBot.PartyBotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PartyBot.app/PartyBot";
+			};
+			name = Release;
+		};
+		ED92FCDC1D3A0FF6000A93BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PartyBotUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PartyBot.PartyBotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PartyBot;
+			};
+			name = Debug;
+		};
+		ED92FCDD1D3A0FF6000A93BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PartyBotUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PartyBot.PartyBotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PartyBot;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED92FCA81D3A0FF5000A93BF /* Build configuration list for PBXProject "PartyBot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED92FCD31D3A0FF6000A93BF /* Debug */,
+				ED92FCD41D3A0FF6000A93BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED92FCD51D3A0FF6000A93BF /* Build configuration list for PBXNativeTarget "PartyBot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED92FCD61D3A0FF6000A93BF /* Debug */,
+				ED92FCD71D3A0FF6000A93BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED92FCD81D3A0FF6000A93BF /* Build configuration list for PBXNativeTarget "PartyBotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED92FCD91D3A0FF6000A93BF /* Debug */,
+				ED92FCDA1D3A0FF6000A93BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED92FCDB1D3A0FF6000A93BF /* Build configuration list for PBXNativeTarget "PartyBotUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED92FCDC1D3A0FF6000A93BF /* Debug */,
+				ED92FCDD1D3A0FF6000A93BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED92FCA51D3A0FF5000A93BF /* Project object */;
+}

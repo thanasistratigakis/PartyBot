@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		048A660287A3BD98E0BC5C14 /* Pods_PartyBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3016D7B764E8049B5C5089C5 /* Pods_PartyBot.framework */; };
+		ED299F7C1D3A249200FB5154 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED299F7B1D3A249200FB5154 /* Spotify.framework */; };
+		ED299F7E1D3A24FD00FB5154 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED299F7D1D3A24FD00FB5154 /* AVFoundation.framework */; };
 		ED92FCB11D3A0FF5000A93BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92FCB01D3A0FF5000A93BF /* AppDelegate.swift */; };
 		ED92FCB31D3A0FF5000A93BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92FCB21D3A0FF5000A93BF /* ViewController.swift */; };
 		ED92FCB61D3A0FF5000A93BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED92FCB41D3A0FF5000A93BF /* Main.storyboard */; };
@@ -40,6 +42,9 @@
 		3016D7B764E8049B5C5089C5 /* Pods_PartyBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA4574C0B3D832092CE0908 /* Pods-PartyBot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyBot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PartyBot/Pods-PartyBot.debug.xcconfig"; sourceTree = "<group>"; };
 		D2BBA9584CFAA1FC8C06B83C /* Pods-PartyBot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyBot.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartyBot/Pods-PartyBot.release.xcconfig"; sourceTree = "<group>"; };
+		ED299F7B1D3A249200FB5154 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
+		ED299F7D1D3A24FD00FB5154 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		ED299F7F1D3A253700FB5154 /* PartyBot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PartyBot-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		ED92FCAD1D3A0FF5000A93BF /* PartyBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED92FCB01D3A0FF5000A93BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED92FCB21D3A0FF5000A93BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +66,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED299F7E1D3A24FD00FB5154 /* AVFoundation.framework in Frameworks */,
 				048A660287A3BD98E0BC5C14 /* Pods_PartyBot.framework in Frameworks */,
+				ED299F7C1D3A249200FB5154 /* Spotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +92,8 @@
 		B1D25ED085CA731E6142CF5C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED299F7D1D3A24FD00FB5154 /* AVFoundation.framework */,
+				ED299F7B1D3A249200FB5154 /* Spotify.framework */,
 				3016D7B764E8049B5C5089C5 /* Pods_PartyBot.framework */,
 			);
 			name = Frameworks;
@@ -131,6 +140,7 @@
 				ED92FCB91D3A0FF5000A93BF /* LaunchScreen.storyboard */,
 				ED92FCBC1D3A0FF5000A93BF /* Info.plist */,
 				ED92FCDE1D3A10E4000A93BF /* GoogleService-Info.plist */,
+				ED299F7F1D3A253700FB5154 /* PartyBot-Bridging-Header.h */,
 			);
 			path = PartyBot;
 			sourceTree = "<group>";
@@ -481,10 +491,15 @@
 			baseConfigurationReference = 5FA4574C0B3D832092CE0908 /* Pods-PartyBot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PartyBot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PartyBot.PartyBot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PartyBot-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -493,10 +508,15 @@
 			baseConfigurationReference = D2BBA9584CFAA1FC8C06B83C /* Pods-PartyBot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PartyBot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PartyBot.PartyBot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PartyBot-Bridging-Header.h";
 			};
 			name = Release;
 		};

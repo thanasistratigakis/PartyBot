@@ -7,49 +7,29 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
     
     var player = SPTAudioStreamingController.sharedInstance()
 
+    var tracks = [PBTrack]()
+    
+    var authViewController: SPTAuthViewController!
+    
+    // MARK: - VC Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if SPTAuth.defaultInstance().session == nil {
-            
-            let vc = SPTAuthViewController.authenticationViewController()
-            
-            self.presentViewController(vc, animated: true, completion: nil)
+        let ref = FIRDatabase.database().reference().child("Tracks")
+        ref.observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot) in
+            self.tracks.append(PBTrack(snapshot: snapshot))
         }
         
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        search()
-    }
-    
-    func search() {
-        guard SPTAuth.defaultInstance().session != nil &&
-            SPTAuth.defaultInstance().session.isValid() else {
-                return
-        }
-        
-        SPTSearch.performSearchWithQuery("kanye",
-                                         queryType: SPTSearchQueryType.QueryTypeTrack,
-                                         accessToken: SPTAuth.defaultInstance().session.accessToken) { (error, results) in
-                                            if let error = error {
-                                                print(error.localizedDescription)
-                                                return
-                                            }
-                                            
-                                            let items = (results as! SPTListPage).items
-                                            let track = items[0] as! SPTPartialTrack
-                                            
-                                            self.playSong(track.playableUri)
-        }
+        authViewController = SPTAuthViewController.authenticationViewController()
+        authViewController.delegate = self
+        presentViewController(authViewController, animated: false, completion: nil)
     }
     
     func playSong(trackURI: NSURL) {
@@ -72,12 +52,19 @@ class ViewController: UIViewController {
             }
         }
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension ViewController: SPTAuthViewDelegate {
+    func authenticationViewController(authenticationViewController: SPTAuthViewController!, didLoginWithSession session: SPTSession!) {
+        print("logged in")
     }
-
-
+    
+    func authenticationViewControllerDidCancelLogin(authenticationViewController: SPTAuthViewController!) {
+        print("canceled login")
+    }
+    
+    func authenticationViewController(authenticationViewController: SPTAuthViewController!, didFailToLogin error: NSError!) {
+        print("failed login")
+    }
 }
 

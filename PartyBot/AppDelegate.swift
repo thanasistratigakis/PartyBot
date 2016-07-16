@@ -19,6 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         setupThirdPartyFramworks()
         
+//        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        
+//        let authViewController = SPTAuthViewController.authenticationViewController()
+//        authViewController.delegate = self
+//        
+//        window!.rootViewController = authViewController
+//        window!.makeKeyAndVisible()
+        
         return true
     }
 
@@ -55,3 +63,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+//extension AppDelegate: SPTAuthViewDelegate {
+//    func authenticationViewController(authenticationViewController: SPTAuthViewController!, didLoginWithSession session: SPTSession!) {
+//        //
+//        
+//        print("logged in")
+//    }
+//    
+//    func authenticationViewControllerDidCancelLogin(authenticationViewController: SPTAuthViewController!) {
+//        //
+//        
+//        print("canceled login")
+//    }
+//    
+//    func authenticationViewController(authenticationViewController: SPTAuthViewController!, didFailToLogin error: NSError!) {
+//        print("failed login")
+//    }
+//}

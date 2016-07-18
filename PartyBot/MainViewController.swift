@@ -42,6 +42,15 @@ class MainViewController: UIViewController {
         
         let ref = FIRDatabase.database().reference().child("Tracks")
         
+        FIRDatabase.database().reference().child("currentTrack").observeSingleEventOfType(.Value) { (snapshot: FIRDataSnapshot) in
+            if(snapshot.exists()){
+                let newTrack = PBTrack(snapshot: snapshot)
+                self.songPlayingTitle.text = newTrack.title
+                self.artistPlayingTitle.text = newTrack.artist
+                self.albumImageView.af_setImageWithURL(NSURL(string: newTrack.album)!)
+                self.albumPlayingTitle.text = newTrack.albumTitle
+            }
+        }
         
         ref.observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot) in
             let track = PBTrack(snapshot: snapshot)
@@ -89,7 +98,9 @@ class MainViewController: UIViewController {
     
     func removeTrackFromFirebase(){
         if(tracks.count > 0){
+            let track = tracks[0]
             tracks[0].removeTrack()
+            FIRDatabase.database().reference().child("currentTrack").updateChildValues(["albumTitle" : track.albumTitle, "artist" : track.artist, "title" : track.title, "uri" : track.uri, "url" : track.album])
         }
     }
     

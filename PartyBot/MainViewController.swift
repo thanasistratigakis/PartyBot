@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     
     var didRemove = false
     
-        
+    
     // MARK: - Subviews
     
     @IBOutlet weak var tableView: UITableView!
@@ -39,11 +39,20 @@ class MainViewController: UIViewController {
         player.playbackDelegate = self
         
         
+        
         let ref = FIRDatabase.database().reference().child("Tracks")
+        
+        
         ref.observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot) in
-            self.tracks.append(PBTrack(snapshot: snapshot))
+            let track = PBTrack(snapshot: snapshot)
+            self.tracks.append(track)
+
+//            let uris = self.tracks.map{$0.uri}
+//            print(uris)
+//            self.player.replaceURIs(uris, withCurrentTrack: 0){(error) in
+//                print(error)
+//            }
             self.tableView.reloadData()
-            print(self.tracks.count)
         }
         
         ref.observeEventType(.ChildRemoved) { (snapshot: FIRDataSnapshot) in
@@ -74,7 +83,7 @@ class MainViewController: UIViewController {
         }
         
         FIRDatabase.database().reference().child("State").setValue(!playButton.selected)
-
+        
     }
     
     
@@ -89,9 +98,9 @@ class MainViewController: UIViewController {
             try player.stop()
             removeTrackFromFirebase()
         }catch{
-
+            
         }
-
+        
     }
     
     
@@ -110,7 +119,7 @@ class MainViewController: UIViewController {
         albumImageView.af_setImageWithURL(NSURL(string: newTrack.album)!)
         albumPlayingTitle.text = newTrack.albumTitle
         tableView.reloadData()
-
+        
     }
     
     func playSong(trackURIString: String) {
@@ -131,7 +140,7 @@ class MainViewController: UIViewController {
         player.loginWithAccessToken(SPTAuth.defaultInstance().session.accessToken)
         
         player.playURIs([trackURI], fromIndex: 0) { (error) in
-            LightHelper.flashLightsAtTempo(self.player.currentTrackDuration, id: self.parseTrackURI(trackURI))
+            //LightHelper.flashLightsAtTempo(self.player.currentTrackDuration, id: self.parseTrackURI(trackURI))
             if let error = error {
                 print(error.localizedDescription)
             }
@@ -150,7 +159,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tracks.count
-
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -164,26 +173,12 @@ extension MainViewController: UITableViewDataSource{
 
 extension MainViewController: SPTAudioStreamingPlaybackDelegate{
     func audioStreaming(audioStreaming: SPTAudioStreamingController!, didChangePlaybackStatus isPlaying: Bool) {
-
-      
-    }
-    
-    
-    func audioStreamingDidBecomeInactivePlaybackDevice(audioStreaming: SPTAudioStreamingController!) {
-        print("ran")
-        if(tracks.count > 0 && !didRemove){
-            let newTrack = tracks.removeFirst()
-            songPlayingTitle.text = newTrack.title
-            artistPlayingTitle.text = newTrack.artist
-            tableView.reloadData()
-            FIRDatabase.database().reference().child("Tracks").child(tracks[0].key).removeValue()
-            let track = tracks[0]
-            playSong(track.uri)
-            didRemove = true
-        }else{
-            didRemove = false
+        if (player.currentPlaybackPosition >= player.currentTrackDuration){
+            print("current: \(player.currentPlaybackPosition) total: \(player.currentTrackDuration) name")
+            removeTrackFromFirebase()
         }
     }
+    
     
 }
 

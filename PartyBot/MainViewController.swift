@@ -27,6 +27,8 @@ class MainViewController: UIViewController {
     
     var didRemove = false
     
+    var isDemoDevice = true
+    
     
     // MARK: - Subviews
     
@@ -81,17 +83,18 @@ class MainViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func pausedTapped(sender: AnyObject) {
-        playButton.selected = !playButton.selected
-        
-        if(player.currentTrackURI == nil){
-            removeTrackFromFirebase()
-            playButton.selected = false
-        }else{
-            player.setIsPlaying(!playButton.selected, callback: nil)
+        if !isDemoDevice {
+            playButton.selected = !playButton.selected
             
+            if(player.currentTrackURI == nil){
+                removeTrackFromFirebase()
+                playButton.selected = false
+            }else{
+                player.setIsPlaying(!playButton.selected, callback: nil)
+            }
+            
+            FIRDatabase.database().reference().child("State").setValue(!playButton.selected)
         }
-        
-        FIRDatabase.database().reference().child("State").setValue(!playButton.selected)
         
     }
     
@@ -105,13 +108,14 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func nextPressed(sender: AnyObject) {
-        do{
-            try player.stop()
-            removeTrackFromFirebase()
-        }catch{
-            
+        if !isDemoDevice {
+            do{
+                try player.stop()
+                removeTrackFromFirebase()
+            }catch{
+                
+            }
         }
-        
     }
     
     
@@ -135,25 +139,26 @@ class MainViewController: UIViewController {
     
     func playSong(trackURIString: String) {
         
-        
-        guard SPTAuth.defaultInstance().session != nil &&
-            SPTAuth.defaultInstance().session.isValid() else {
-                return
-        }
-        
-        let trackURI = NSURL(string:  trackURIString)!
-        do {
-            try player.startWithClientId(SPTAuth.defaultInstance().clientID)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        
-        player.loginWithAccessToken(SPTAuth.defaultInstance().session.accessToken)
-        
-        player.playURIs([trackURI], fromIndex: 0) { (error) in
-            //LightHelper.flashLightsAtTempo(self.player.currentTrackDuration, id: self.parseTrackURI(trackURI))
-            if let error = error {
+        if !isDemoDevice {
+            guard SPTAuth.defaultInstance().session != nil &&
+                SPTAuth.defaultInstance().session.isValid() else {
+                    return
+            }
+            
+            let trackURI = NSURL(string:  trackURIString)!
+            do {
+                try player.startWithClientId(SPTAuth.defaultInstance().clientID)
+            } catch let error as NSError {
                 print(error.localizedDescription)
+            }
+            
+            player.loginWithAccessToken(SPTAuth.defaultInstance().session.accessToken)
+            
+            player.playURIs([trackURI], fromIndex: 0) { (error) in
+                //LightHelper.flashLightsAtTempo(self.player.currentTrackDuration, id: self.parseTrackURI(trackURI))
+                if let error = error {
+                    print(error.localizedDescription)
+                }
             }
         }
     }

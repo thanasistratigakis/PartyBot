@@ -27,7 +27,9 @@ class MainViewController: UIViewController {
     
     var didRemove = false
     
-        
+    var isDemoDevice = true
+    
+    
     // MARK: - Subviews
     
     @IBOutlet weak var tableView: UITableView!
@@ -39,11 +41,29 @@ class MainViewController: UIViewController {
         player.playbackDelegate = self
         
         
+        
         let ref = FIRDatabase.database().reference().child("Tracks")
+        
+        FIRDatabase.database().reference().child("currentTrack").observeSingleEventOfType(.Value) { (snapshot: FIRDataSnapshot) in
+            if(snapshot.exists()){
+                let newTrack = PBTrack(snapshot: snapshot)
+                self.songPlayingTitle.text = newTrack.title
+                self.artistPlayingTitle.text = newTrack.artist
+                self.albumImageView.af_setImageWithURL(NSURL(string: newTrack.album)!)
+                self.albumPlayingTitle.text = newTrack.albumTitle
+            }
+        }
+        
         ref.observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot) in
-            self.tracks.append(PBTrack(snapshot: snapshot))
+            let track = PBTrack(snapshot: snapshot)
+            self.tracks.append(track)
+
+//            let uris = self.tracks.map{$0.uri}
+//            print(uris)
+//            self.player.replaceURIs(uris, withCurrentTrack: 0){(error) in
+//                print(error)
+//            }
             self.tableView.reloadData()
-            print(self.tracks.count)
         }
         
         ref.observeEventType(.ChildRemoved) { (snapshot: FIRDataSnapshot) in
@@ -63,35 +83,39 @@ class MainViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func pausedTapped(sender: AnyObject) {
-        playButton.selected = !playButton.selected
-        
-        if(player.currentTrackURI == nil){
-            removeTrackFromFirebase()
-            playButton.selected = false
-        }else{
-            player.setIsPlaying(!playButton.selected, callback: nil)
+        if !isDemoDevice {
+            playButton.selected = !playButton.selected
             
+            if(player.currentTrackURI == nil){
+                removeTrackFromFirebase()
+                playButton.selected = false
+            }else{
+                player.setIsPlaying(!playButton.selected, callback: nil)
+            }
+            
+            FIRDatabase.database().reference().child("State").setValue(!playButton.selected)
         }
         
-        FIRDatabase.database().reference().child("State").setValue(!playButton.selected)
-
     }
     
     
     func removeTrackFromFirebase(){
         if(tracks.count > 0){
+            let track = tracks[0]
             tracks[0].removeTrack()
+            FIRDatabase.database().reference().child("currentTrack").updateChildValues(["albumTitle" : track.albumTitle, "artist" : track.artist, "title" : track.title, "uri" : track.uri, "url" : track.album])
         }
     }
     
     @IBAction func nextPressed(sender: AnyObject) {
-        do{
-            try player.stop()
-            removeTrackFromFirebase()
-        }catch{
-
+        if !isDemoDevice {
+            do{
+                try player.stop()
+                removeTrackFromFirebase()
+            }catch{
+                
+            }
         }
-
     }
     
     
@@ -110,30 +134,31 @@ class MainViewController: UIViewController {
         albumImageView.af_setImageWithURL(NSURL(string: newTrack.album)!)
         albumPlayingTitle.text = newTrack.albumTitle
         tableView.reloadData()
-
+        
     }
     
     func playSong(trackURIString: String) {
         
-        
-        guard SPTAuth.defaultInstance().session != nil &&
-            SPTAuth.defaultInstance().session.isValid() else {
-                return
-        }
-        
-        let trackURI = NSURL(string:  trackURIString)!
-        do {
-            try player.startWithClientId(SPTAuth.defaultInstance().clientID)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        
-        player.loginWithAccessToken(SPTAuth.defaultInstance().session.accessToken)
-        
-        player.playURIs([trackURI], fromIndex: 0) { (error) in
-            LightHelper.flashLightsAtTempo(self.player.currentTrackDuration, id: self.parseTrackURI(trackURI))
-            if let error = error {
+        if !isDemoDevice {
+            guard SPTAuth.defaultInstance().session != nil &&
+                SPTAuth.defaultInstance().session.isValid() else {
+                    return
+            }
+            
+            let trackURI = NSURL(string:  trackURIString)!
+            do {
+                try player.startWithClientId(SPTAuth.defaultInstance().clientID)
+            } catch let error as NSError {
                 print(error.localizedDescription)
+            }
+            
+            player.loginWithAccessToken(SPTAuth.defaultInstance().session.accessToken)
+            
+            player.playURIs([trackURI], fromIndex: 0) { (error) in
+                //LightHelper.flashLightsAtTempo(self.player.currentTrackDuration, id: self.parseTrackURI(trackURI))
+                if let error = error {
+                    print(error.localizedDescription)
+                }
             }
         }
     }
@@ -150,7 +175,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tracks.count
-
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -164,26 +189,12 @@ extension MainViewController: UITableViewDataSource{
 
 extension MainViewController: SPTAudioStreamingPlaybackDelegate{
     func audioStreaming(audioStreaming: SPTAudioStreamingController!, didChangePlaybackStatus isPlaying: Bool) {
-
-      
-    }
-    
-    
-    func audioStreamingDidBecomeInactivePlaybackDevice(audioStreaming: SPTAudioStreamingController!) {
-        print("ran")
-        if(tracks.count > 0 && !didRemove){
-            let newTrack = tracks.removeFirst()
-            songPlayingTitle.text = newTrack.title
-            artistPlayingTitle.text = newTrack.artist
-            tableView.reloadData()
-            FIRDatabase.database().reference().child("Tracks").child(tracks[0].key).removeValue()
-            let track = tracks[0]
-            playSong(track.uri)
-            didRemove = true
-        }else{
-            didRemove = false
+        if (player.currentPlaybackPosition >= player.currentTrackDuration){
+            print("current: \(player.currentPlaybackPosition) total: \(player.currentTrackDuration) name")
+            removeTrackFromFirebase()
         }
     }
+    
     
 }
 

@@ -220,6 +220,7 @@
 				ED92FCAB1D3A0FF5000A93BF /* Resources */,
 				001A7F7993CBC4113013BB1D /* [CP] Embed Pods Frameworks */,
 				2B16E835DA322CBC109FFC9F /* [CP] Copy Pods Resources */,
+				F0A9DA6517F3BED4E86C79A3 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -283,6 +284,7 @@
 				TargetAttributes = {
 					ED92FCAC1D3A0FF5000A93BF = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 49S98LV4RB;
 					};
 					ED92FCC01D3A0FF5000A93BF = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -446,6 +448,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F0A9DA6517F3BED4E86C79A3 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PartyBot/Pods-PartyBot-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F5D16AA37615F20465FA98FF /* [CP] Check Pods Manifest.lock */ = {
@@ -621,14 +638,18 @@
 			baseConfigurationReference = 4F904D77B9D9AA9C43EB00B3 /* Pods-PartyBot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PartyBot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PartyBot.PartyBot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PartyBot-Bridging-Header.h";
 			};
 			name = Debug;
@@ -638,14 +659,18 @@
 			baseConfigurationReference = A27CC08FA72E39E7E821A89C /* Pods-PartyBot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PartyBot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PartyBot.PartyBot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PartyBot-Bridging-Header.h";
 			};
 			name = Release;

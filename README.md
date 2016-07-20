@@ -5,7 +5,7 @@
   * Make it so only the host needs to sign into spotify (Brian)
   * Add Parties(Channels) (Brian: Backend, Nick, Alex: Implementation)
   * Add codes for parties (Brian: Backend)
-  * Decide on name (Fiesta, PartiBot, Beetz!, Medley, PartyMix, GuacParty, Amp, Agora, Ox, Aux, OurTunes, Jingle, BeetBox, SoundBox, Turnip, BalladBox, Drop, SoundDrop, DeezNutz, HertzSoGood, DeezBeetz, SuFiesta, BeatBlend, Smoothi, Auxward, BRIAN, CARL, CAR-L, BreakBeat, Tempo, SoundWeave, HouseParty, GroupThink, Encord, Duet, Choir, Symphony, Loki, Resonate, Noize, MusicalChairs, Auxilarmy, Pinata)
+  * Decide on name (Fiesta, PartiBot, Beetz, Medley, PartyMix, Guac, Amp, Agora, Ox, Aux, BeetBox, SoundBox, Turnip, BalladBox, Drop, SoundDrop, SuFiesta, BeatBlend, BreakBeat, Tempo, SoundWeave, HouseParty, Loki, Noize, MusicalChairs, Pinata, Flair, Tonic, Infuse, Fest, Vibe, Zest, Output, Chain, Sequence, Glide, Current, Breeze, Draft, Pulse, Festivus)
   * Make song history viewable(Brian, Nabil: Backend, Alex: Frontend)
   * Export current playlist to Spotify/Possibly others?(
   * Join party without logging in
